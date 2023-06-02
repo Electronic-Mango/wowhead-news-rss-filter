@@ -3,7 +3,7 @@ from typing import Annotated
 from xml.etree.ElementTree import fromstring, tostring
 
 from fastapi import FastAPI, HTTPException, Query
-from requests import get
+from requests import Response, get
 
 NEWS_RSS_URL = "https://www.wowhead.com/news&rss"
 
@@ -13,11 +13,17 @@ app = FastAPI(docs_url="/")
 @app.get("/news")
 async def news(remove: Annotated[list[str], Query()] = None):
     response = get(NEWS_RSS_URL)
+    verify_response(response)
+    return filter_results(response.text, remove) if remove else response.text
+
+
+def verify_response(response: Response):
     if response.status_code != HTTPStatus.OK:
         raise HTTPException(status_code=response.status_code, detail=response.text)
-    if not remove:
-        return response.text
-    xml = fromstring(response.text)
+
+
+def filter_results(response: str, remove: list[str]):
+    xml = fromstring(response)
     channel = xml.find("channel")
     for item in channel.findall("item"):
         if item.find("category").text in remove:
