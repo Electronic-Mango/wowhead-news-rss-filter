@@ -6,12 +6,7 @@ from requests import get
 
 NEWS_RSS_URL = "https://www.wowhead.com/news&rss"
 
-app = FastAPI()
-
-
-@app.get("/")
-async def root():
-    return "Wowhead news RSS filter"
+app = FastAPI(docs_url="/")
 
 
 @app.get("/news")
