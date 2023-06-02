@@ -5,6 +5,10 @@ services:
     build: .
     container_name: wowhead-news-rss-filter
     restart: unless-stopped
+    environment:
+      - UVICORN_PORT=8000
+    ports:
+      - 5021:8000
     logging:
       driver: "json-file"
       options:
