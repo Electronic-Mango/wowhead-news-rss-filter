@@ -1,7 +1,7 @@
 # Wowhead news RSS filter
 
 [Wowhead](https://www.wowhead.com/) does provide RSS feed for its [news](https://www.wowhead.com/news) section, however it's categories selection is limited.
-For example - you cannot receive news only from live, there's only live+PTR.
+For example - you cannot receive news only from `live` category, there's only `live`+`PTR` together.
 You are also always receiving sponsored posts.
 
 This REST API wraps Wowhead's RSS, but allows for filtering out any category you like.
