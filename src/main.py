@@ -5,14 +5,14 @@ from xml.etree.ElementTree import fromstring, tostring
 from fastapi import FastAPI, HTTPException, Query
 from requests import Response, get
 
-NEWS_RSS_URL = "https://www.wowhead.com/news&rss"
+NEWS_RSS_URL = "https://www.wowhead.com/news/rss/{category}"
 
 app = FastAPI(docs_url="/")
 
 
-@app.get("/news")
-async def news(remove: Annotated[list[str], Query()] = None):
-    response = get(NEWS_RSS_URL)
+@app.get("/news/{category}")
+async def news(category: str, remove: Annotated[list[str], Query()] = None):
+    response = get(NEWS_RSS_URL.format(category=category))
     verify_response(response)
     return filter_results(response.text, remove) if remove else response.text
 
