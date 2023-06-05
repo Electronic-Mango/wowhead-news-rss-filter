@@ -1,7 +1,10 @@
 # Wowhead news RSS filter
 
-[Wowhead](https://www.wowhead.com/) does provide [RSS](https://www.wowhead.com/news) feed for its [news](https://www.wowhead.com/news) section, but it doesn't provide any way of filtering categories.
-This REST API wraps Wowhead's RSS, but allows for filtering out categories.
+[Wowhead](https://www.wowhead.com/) does provide RSS feed for its [news](https://www.wowhead.com/news) section, however it's categories selection is limited.
+For example - you cannot receive news only from live, there's only live+PTR.
+You are also always receiving sponsored posts.
+
+This REST API wraps Wowhead's RSS, but allows for filtering out any category you like.
 
 The API is created with `Python3.11` and [`FastAPI`](https://fastapi.tiangolo.com/).
 
