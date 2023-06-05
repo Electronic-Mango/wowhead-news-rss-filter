@@ -19,7 +19,7 @@ async def news(category: str, remove: Annotated[list[str], Query()] = None):
 
 def verify_response(response: Response):
     if response.status_code != HTTPStatus.OK:
-        raise HTTPException(status_code=response.status_code, detail=response.text)
+        raise HTTPException(status_code=response.status_code, detail="Error when accessing Wowhead!")
 
 
 def filter_results(response: str, remove: list[str]):

@@ -70,3 +70,13 @@ You can specify multiple `remove` parameters to remove multiple different catego
 | `/news/all`                                           | All unfiltered news                                                     |
 | `/news/retail?remove=PTR`                             | Retail WoW news without articles from "PTR" category                    |
 | `/news/classic-series?remove=Blizzard&remove=Wowhead` | Classic WoW news without articles from "Blizzard" or "Wowhead" category |
+
+
+
+## Errors
+
+If Wowhead responds with anything else than code 200, then API will forward received status code with message "Error when accessing Wowhead!".
+Response contents are not forwarded as Wowhead usually responds with full webpage.
+
+Code 404 usually means, that value of passed `category` is incorrect.
+**Keep in mind, that value for `category` is case sensitive, as it is case sensitive for Wowhead RSS links.**
