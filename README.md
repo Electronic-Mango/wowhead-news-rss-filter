@@ -50,13 +50,23 @@ You can remove `ports` section if you want to disable port forwarding.
 
 You can access (automatically generated) docs via `/`, `/docs` or `/redoc`.
 
-Besides docs, there's only one endpoint `/news`.
-Without any additional parameters it will just forward Wowhead news RSS.
+Besides docs, there's only one endpoint `/news/{category}`.
+You can check values for `category` at the bottom of [Wowhead news page](https://www.wowhead.com/news), there's a RSS button with all categories.
+Just make sure that you check the last value in URL, not the name on the page.
+
+Some examples (case sensitive) are:
+ * [`all`](https://www.wowhead.com/news/rss/all)
+ * [`retail`](https://www.wowhead.com/news/rss/retail)
+ * [`diablo`](https://www.wowhead.com/news/rss/diablo)
+ * [`classic-series`](https://www.wowhead.com/news/rss/classic-series)
+ * [`other-blizzard-games`](https://www.wowhead.com/news/rss/other-blizzard-games)
+
+Without any additional parameters it will just forward Wowhead news RSS for a given category.
 You can remove articles from specific categories via `remove` query parameter.
 You can specify multiple `remove` parameters to remove multiple different categories.
 
-| Route                               | Description                                              |
-|-------------------------------------|----------------------------------------------------------|
-| `/news`                             | All unfiltered news                                      |
-| `/news?remove=PTR`                  | News without articles from "PTR" category                |
-| `/news?remove=PTR&remove=Diablo IV` | News without articles from "PTR" or "Diablo IV" category |
+| Route                                                 | Description                                                             |
+|-------------------------------------------------------|-------------------------------------------------------------------------|
+| `/news/all`                                           | All unfiltered news                                                     |
+| `/news/retail?remove=PTR`                             | Retail WoW news without articles from "PTR" category                    |
+| `/news/classic-series?remove=Blizzard&remove=Wowhead` | Classic WoW news without articles from "Blizzard" or "Wowhead" category |
