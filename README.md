@@ -80,3 +80,11 @@ Response contents are not forwarded as Wowhead usually responds with full webpag
 
 Code 404 usually means, that value of passed `category` is incorrect.
 **Keep in mind, that value for `category` is case sensitive, as it is case sensitive for Wowhead RSS links.**
+
+
+
+## Disclaimer
+
+This bot is in no way affiliated, associated, authorized, endorsed by, or in any way officially connected with JustWatch.
+This is an independent and unofficial project.
+Use at your own risk.
