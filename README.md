@@ -85,6 +85,6 @@ Code 404 usually means, that value of passed `category` is incorrect.
 
 ## Disclaimer
 
-This API is in no way affiliated, associated, authorized, endorsed by, or in any way officially connected with JustWatch.
+This API is in no way affiliated, associated, authorized, endorsed by, or in any way officially connected with Wowhead.
 This is an independent and unofficial project.
 Use at your own risk.
